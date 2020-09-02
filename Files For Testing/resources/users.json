@@ -1,0 +1,10 @@
+{
+    "users": [
+        {
+            "username":"blackstone",
+            "password":"TestPassword",
+            "rootpath": "C:\\MBTP\\blackstone",
+            "fullaccess":"false"
+        }
+    ]
+}
