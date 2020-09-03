@@ -1,0 +1,25 @@
+image: mcr.microsoft.com/dotnet/core/sdk:3.1
+
+stages:
+  - build
+
+build:
+  stage: build
+  artifacts:
+    paths:
+      - "/builds/bs-studios/mbtp/MBTP Server/MBTP Server/bin/Release/netcoreapp3.1/*"
+      - "/builds/bs-studios/mbtp/MBTP Client/MBTP Client/bin/Release/netcoreapp3.1/*"
+  script:
+    - cd "MBTP Server"
+    - dotnet restore
+    - dotnet publish -c "Release" -r "win-x64" --self-contained false
+    - dotnet publish -c "Release" -r "linux-x64" --self-contained false
+    - cd ..
+    - cd "MBTP Client"
+    - dotnet restore
+    - dotnet publish -c "Release" -r "win-x64" --self-contained false
+    - dotnet publish -c "Release" -r "linux-x64" --self-contained false
+    - cd ..
+
+
+    
